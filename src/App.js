@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
 
 import logo from "./images/gbeano-logo-600px.png"
 
@@ -48,10 +49,12 @@ function App() {
             >                             
               <Grid container direction="row" marginTop={3}>
                 <Button variant="contained" onClick={onGo} sx={{backgroundColor:"#fff"}}>
-                  <Typography variant="h3" sx={{ mr:1, p:1, color:"#e8772d"}}>
+                  <Typography variant="h3" sx={{ fontSize:"1.5rem", mr:1, p:1, color:"#e8772d"}}>
                     LETS<br/>GO
                   </Typography>
-                
+                  <RocketLaunchRoundedIcon 
+                    sx={{ fontSize: { xs:'1.75rem', md:'2rem', lg:'2.25rem', xl:'2.5rem'}, borderRadius:"25%", color:"#e8772d" }}
+                  />
                 </Button>
               </Grid>                       
             </IconButton>
