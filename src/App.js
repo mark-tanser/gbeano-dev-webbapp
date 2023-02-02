@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
 
@@ -10,7 +10,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 
-import { Box, Paper, Grid, Button, IconButton, Typography, useMediaQuery } from "@mui/material"
+import { Grid, Button, IconButton, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
 
