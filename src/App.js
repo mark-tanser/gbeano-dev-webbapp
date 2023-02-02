@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 import logo from "./images/gbeano-logo-600px.png"
 
@@ -52,9 +51,7 @@ function App() {
                   <Typography variant="h3" sx={{ mr:1, p:1, color:"#e8772d"}}>
                     LETS<br/>GO
                   </Typography>
-                  <RocketLaunchIcon 
-                    sx={{ fontSize: { xs:'1.75rem', md:'2rem', lg:'2.25rem', xl:'2.5rem'}, borderRadius:"25%", color:"#e8772d" }}
-                  />
+                
                 </Button>
               </Grid>                       
             </IconButton>
