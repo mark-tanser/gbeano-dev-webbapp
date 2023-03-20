@@ -12,7 +12,6 @@ import "@fontsource/plus-jakarta-sans/600.css"
 import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
-const firstName = tele.initData.user.first_name
 
 function App() {
 
@@ -21,7 +20,8 @@ function App() {
   }, [])
 
   const onGo = () => {
-    tele.MainButton.text = "Join a Group"
+    const firstName = tele.initData
+    tele.MainButton.text = "Hi " + firstName + ". Join a Group"
     tele.MainButton.show()
   }
 
