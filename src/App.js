@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 
 import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
 
-import logo from "./images/gbeano-logo-600px.png"
+import logo from "./images/logo_dark_2_on_transparent_light_text.webp"
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import "@fontsource/ibm-plex-sans/400.css"
+import "@fontsource/plus-jakarta-sans/400.css"
+import "@fontsource/plus-jakarta-sans/600.css"
 
 
 import { Grid, Button, IconButton, Typography} from "@mui/material"
@@ -28,7 +27,7 @@ function App() {
   return (
     <div className="App">
 
-      <Grid container direction="row" justifyContent="center" alignItems="flex-start" sx={{ backgroundColor:"#e8772d", height:"100vh" }}>
+      <Grid container direction="row" justifyContent="center" alignItems="flex-start" sx={{ backgroundColor:"#1e293b", height:"100vh" }}>
           <Grid item container xs={12} justifyContent="center" alignItems="center" direction="column" sx={{ mt:5 }}>
             <Button 
               sx={{ width: "18rem", height: "18rem", color:"#fff" }}
@@ -36,28 +35,57 @@ function App() {
               <img src={logo} alt="gbeano" width="200px" height="200px"/>
             </Button>
 
-            <Typography paragraph variant="h2" sx={{fontSize:"2rem", textAlign:"center", color:"#fff"}}>
+            <Typography paragraph variant="h2" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"2rem", textAlign:"center", color:"#fff"}}>
               High power community portal
             </Typography>
-            <Typography variant="h3" sx={{fontSize:"1rem", textAlign:"center", color:"#fff"}}>
+            <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"1.5rem", textAlign:"center", color:"#fff"}}>
               Join a community today!
             </Typography>
             <br/><br/>
 
-            <IconButton 
-              sx={{ p: 0, borderRadius: 1 }}
-            >                             
-              <Grid container direction="row" marginTop={3}>
-                <Button variant="contained" onClick={onGo} sx={{backgroundColor:"#fff"}}>
-                  <Typography variant="h3" sx={{ fontSize:"1.5rem", mr:1, p:1, color:"#e8772d"}}>
-                    LETS<br/>GO
-                  </Typography>
-                  <RocketLaunchRoundedIcon 
-                    sx={{ fontSize: { xs:'1.75rem', md:'2rem', lg:'2.25rem', xl:'2.5rem'}, borderRadius:"25%", color:"#e8772d" }}
-                  />
-                </Button>
+                                        
+              <Grid container direction="row" justifyContent="center" marginTop={3}>
+
+                <Grid item>
+                  <Button 
+                    onClick={onGo} 
+                    variant="contained" 
+                    sx={{ 
+                      border: 1,
+                      borderColor: "#1e293b",
+                      borderRadius: 3, 
+                      backgroundColor: "#a6c2f4",
+                      color: "#242f41",
+                      width:"100%",
+                      '&:hover, &.Mui-focusVisible':{ 
+                        color:"#1e293b",
+                        backgroundColor:"#fff",
+                        border:1,
+                        borderColor:"#1e293b"
+                      }
+                    }}
+                  >
+                    <Grid item container alignItems="center">
+                      <Typography variant="h2" sx={{fontFamily:"IBM Plex Sans", fontSize:"1.5rem", color:"inherit", mr:0.5, p:0.5}}>
+                        LETS<br/>GO
+                      </Typography>
+                        <RocketLaunchRoundedIcon 
+                          color="inherit"
+                          sx={{ 
+                            fontSize: { xs:'1.5rem', md:'1.75rem', lg:'2rem', xl:'2.5rem'},
+                          }}
+                      />
+
+                    </Grid>
+                                                                        
+                  </Button>
+                </Grid>
+
+
+
+                
+                
               </Grid>                       
-            </IconButton>
 
           </Grid>
 
