@@ -15,7 +15,7 @@ bot.start((ctx) => {
     console.log("ctx.updateSubTypes:", ctx.updateSubTypes);
     ctx.reply('Welcome to gBeano !', {
         reply_markup: {
-            keyboard: [[{ text: "JOIN A COMMUNITY", web_app: { url: weblink }}]]
+            inline_keyboard: [[{ text: "JOIN A COMMUNITY", web_app: { url: weblink }}]]
         }
     });
 });
