@@ -24,7 +24,7 @@ function App() {
 
   const onGo = () => {
     
-    tele.MainButton.text = "Hi"
+    tele.MainButton.text = `Hi ${first_name}. Click here to start`
     tele.MainButton.show()
   }
 
@@ -48,7 +48,7 @@ function App() {
             </Typography>
 
             <br/><br/>
-            <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", textAlign:"center", color:"#fff"}}>
+            <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"1rem", textAlign:"center", color:"#fff"}}>
               initData: <br/>
               id: {id} <br/>
               first_name: {first_name} <br/> 
