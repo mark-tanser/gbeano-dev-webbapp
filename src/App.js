@@ -14,7 +14,7 @@ import { Grid, Button, Typography} from "@mui/material"
 const tele = window.Telegram.WebApp
 const initData = new URLSearchParams(tele.initData)
 const user = initData.get("user")
-const { id, first_name, last_name, username, language_code, photo_url } = user
+const { id, first_name, last_name, username, language_code, photo_url } = JSON.parse(user)
 
 function App() {
 
