@@ -9,7 +9,7 @@ import "@fontsource/plus-jakarta-sans/400.css"
 import "@fontsource/plus-jakarta-sans/600.css"
 
 
-import { Grid, Button, IconButton, Typography} from "@mui/material"
+import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
 
