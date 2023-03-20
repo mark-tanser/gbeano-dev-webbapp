@@ -12,7 +12,7 @@ import "@fontsource/plus-jakarta-sans/600.css"
 import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
-const firstName = tele ? tele.initData.slice(0,5) : "not loaded"
+const firstName = tele ? tele : "not loaded"
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
 
   const onGo = () => {
     
-    tele.MainButton.text = "Hi " + firstName + ". Join a Group"
+    tele.MainButton.text = tele
     tele.MainButton.show()
   }
 
