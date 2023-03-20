@@ -12,7 +12,7 @@ import "@fontsource/plus-jakarta-sans/600.css"
 import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
-const firstName = tele ? tele.initData.slice(0,20) : "not loaded"
+const firstName = tele ? tele.initData : "not loaded"
 
 function App() {
 
@@ -40,15 +40,14 @@ function App() {
             <Typography paragraph variant="h2" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"2rem", textAlign:"center", color:"#fff"}}>
               High power community portal
             </Typography>
-            <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"1.5rem", textAlign:"center", color:"#fff"}}>
-              {firstName}!
-            </Typography>
+
             <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"1.5rem", textAlign:"center", color:"#fff"}}>
               Join a community today!
             </Typography>
+
             <br/><br/>
             <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", textAlign:"center", color:"#fff"}}>
-              output <br/>
+              initData: <br/>
               {firstName}
             </Typography>
 
