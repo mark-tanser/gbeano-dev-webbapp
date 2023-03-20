@@ -12,6 +12,7 @@ import "@fontsource/plus-jakarta-sans/600.css"
 import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
+console.log("tele:", tele)
 
 function App() {
 
