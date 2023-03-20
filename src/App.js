@@ -20,7 +20,7 @@ function App() {
   }, [])
 
   const onGo = () => {
-    const firstName = tele.initData
+    const firstName = tele.initData ?? "not loaded"
     tele.MainButton.text = "Hi " + firstName + ". Join a Group"
     tele.MainButton.show()
   }
