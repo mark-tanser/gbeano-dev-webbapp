@@ -12,7 +12,7 @@ import "@fontsource/plus-jakarta-sans/600.css"
 import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
-const firstName = tele ? tele.slice(0,20) : "not loaded"
+const firstName = tele ? tele.initData.slice(0,20) : "not loaded"
 
 function App() {
 
