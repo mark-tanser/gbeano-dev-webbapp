@@ -12,7 +12,7 @@ import "@fontsource/plus-jakarta-sans/600.css"
 import { Grid, Button, Typography} from "@mui/material"
 
 const tele = window.Telegram.WebApp
-const firstName = tele ? tele : "not loaded"
+const firstName = tele ? tele.slice(0,20) : "not loaded"
 
 function App() {
 
@@ -49,7 +49,7 @@ function App() {
             <br/><br/>
             <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", textAlign:"center", color:"#fff"}}>
               output <br/>
-              {tele}
+              {firstName}
             </Typography>
 
                                         
