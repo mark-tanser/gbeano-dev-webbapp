@@ -22,7 +22,7 @@ function App() {
 
   const onGo = () => {
     
-    tele.MainButton.text = tele
+    tele.MainButton.text = "Hi"
     tele.MainButton.show()
   }
 
@@ -47,6 +47,10 @@ function App() {
               Join a community today!
             </Typography>
             <br/><br/>
+            <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", textAlign:"center", color:"#fff"}}>
+              output <br/>
+              {tele}
+            </Typography>
 
                                         
               <Grid container direction="row" justifyContent="center" marginTop={3}>
