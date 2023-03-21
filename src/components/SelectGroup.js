@@ -67,7 +67,7 @@ export default function SelectGroup({
     
     return (
         <div>
-            <Grid item container direction = "column" alignItems="center">
+            <Grid item container direction = "column" alignItems="center" padding={4}>
                 <Grid item>
                     <Button 
                         sx={{ width: "10rem", height: "10rem", color:"#fff" }}
@@ -87,7 +87,16 @@ export default function SelectGroup({
                         Clubs, Non-Profits, Education & Corporate Alumni
                     </Typography>
                 </Grid>
-                <Grid item height="50px"/>
+
+                <Grid item height="30px"/>
+
+                <Grid item>
+                    <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"1.25rem", textAlign:"center", color:"#fff"}}>
+                        Hello {user.first_name}
+                    </Typography>
+                </Grid>
+                
+                <Grid item height="30px"/>
 
                 <Grid item>
                     <FormControl>
@@ -147,7 +156,7 @@ export default function SelectGroup({
                                 {
                                     selectedOrg !== null
                                         ?
-                                            "Available Groups:"
+                                            "available groups:"
                                         :
                                             undefined
                                 }

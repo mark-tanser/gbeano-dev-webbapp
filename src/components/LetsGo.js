@@ -40,16 +40,7 @@ export default function LetsGo({
 
 
             <br/><br/>
-            <Typography variant="h3" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"1rem", textAlign:"center", color:"#fff"}}>
-              initData: <br/>
-              id: {user.id} <br/>
-              first_name: {user.first_name} <br/> 
-              last_name: {user.last_name} <br/> 
-              username: {user.username} <br/>
-              language_code: {user.language_code} <br/>
-              photo_url: {user.photo_url} <br/>
-
-            </Typography>
+            
 
                                         
             <Grid container direction="row" justifyContent="center" marginTop={3}>
