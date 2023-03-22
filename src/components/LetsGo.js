@@ -6,7 +6,7 @@ import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
 import logo from "../images/logo_dark_2_on_transparent_light_text.webp"
 
 export default function LetsGo({
-    user, search, setSearch, initData
+    user, search, setSearch, telegramInitData
 }) {
 
     const onGo = () => {
@@ -82,7 +82,7 @@ export default function LetsGo({
 
                 <Grid item container justifyContent="left">
                     <Typography variant="h4" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", color:"#fff"}}>
-                        {initData}
+                        {telegramInitData}
                     </Typography>
                 </Grid>
                 

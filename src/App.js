@@ -27,7 +27,7 @@ function App() {
     photo_url: "[]"
   }
 
-  //const testTelegramInitData = 'query_idAAE_xB4aAAAAAD_EHhr2Y7iDuser{"id":438223935,"first_name":"Mark","last_name":"Tanser","username":"Mark_T1000","language_code":"en"}auth_date1679449356hash037921a5ec9e0db1cc16240fdf67fcdafd72f3906579a83009433cb811549cc6'
+  const testTelegramInitData = 'query_idAAE_xB4aAAAAAD_EHhqa7uQouser{"id":438223935,"first_name":"Mark","last_name":"Tanser","username":"Mark_T1000","language_code":"en"}auth_date1679451359hashd930489b2bca9244330a337d392b5506ff8fed362d86388891b5ab5a12ed46b9'
   
 
   //console.log("testTelegramInitData:", testTelegramInitData)
@@ -70,7 +70,7 @@ function App() {
                   user={user} 
                   search={search} 
                   setSearch={setSearch}
-                  initData={initData}
+                  telegramInitData={initData}
                 />
               :
                 <SelectGroup 
