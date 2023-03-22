@@ -80,8 +80,8 @@ export default function LetsGo({
                   </Button>
                 </Grid>    
 
-                <Grid item>
-                    <Typography variant="h4" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", textAlign:"center", color:"#fff"}}>
+                <Grid item container justifyContent="left">
+                    <Typography variant="h4" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", color:"#fff"}}>
                         {initData}
                     </Typography>
                 </Grid>
