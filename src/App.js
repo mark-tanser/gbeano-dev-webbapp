@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from "@mui/material"
 
-import validateTelegramWebAppData from './functions/validateTelegramWebAppData'
-
 import LetsGo from './components/LetsGo'
 import SelectGroup from './components/SelectGroup'
 
@@ -27,14 +25,6 @@ function App() {
     photo_url: "[]"
   }
 
-  const testTelegramInitData = 'query_idAAE_xB4aAAAAAD_EHhqa7uQouser{"id":438223935,"first_name":"Mark","last_name":"Tanser","username":"Mark_T1000","language_code":"en"}auth_date1679451359hashd930489b2bca9244330a337d392b5506ff8fed362d86388891b5ab5a12ed46b9'
-  
-
-  //console.log("testTelegramInitData:", testTelegramInitData)
-
-  //const testValidate = validateTelegramWebAppData(testTelegramInitData)
-  //console.log("testValidate:", testValidate)
-
   let isDevelopment = false
   if (process.env.NODE_ENV === "development") { isDevelopment = true }
   let tele = null
@@ -44,12 +34,8 @@ function App() {
   
   if (!isDevelopment) {
     tele = window.Telegram.WebApp
-    const telegramInitData = tele.initData
     initData = new URLSearchParams(tele.initData)
-    //if (validateTelegramWebAppData(telegramInitData)) {
-    //  console.log("telegramInitData validated")
-      user = JSON.parse(initData.get("user"))
-    //}
+    user = JSON.parse(initData.get("user"))
   }
   
   console.log("user:", user)
@@ -70,16 +56,18 @@ function App() {
                   user={user} 
                   search={search} 
                   setSearch={setSearch}
-                  telegramInitData={initData}
                 />
               :
+                
                 <SelectGroup 
                   user={user} 
                   selectedOrg={selectedOrg}
                   setSelectedOrg={setSelectedOrg}
                   selectedGroup={selectedGroup} 
                   setSelectedGroup={setSelectedGroup}
-                />
+                  setSearch={setSearch}
+              />
+                 
           }
 
       </Grid>

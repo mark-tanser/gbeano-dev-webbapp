@@ -6,15 +6,10 @@ import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
 import logo from "../images/logo_dark_2_on_transparent_light_text.webp"
 
 export default function LetsGo({
-    user, search, setSearch, telegramInitData
+    user, search, setSearch
 }) {
 
     const onGo = () => {
-    
-        //if (!isDevelopment) {
-        //    tele.MainButton.text = `Hi ${user.first_name}. Click here to start`
-        //    tele.MainButton.show()
-        //}
     
         if (!search){ setSearch(true)}
     }
@@ -79,12 +74,6 @@ export default function LetsGo({
                                                                         
                   </Button>
                 </Grid>    
-
-                <Grid item container justifyContent="left">
-                    <Typography variant="h4" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", color:"#fff"}}>
-                        {telegramInitData}
-                    </Typography>
-                </Grid>
                 
             </Grid>                       
 
