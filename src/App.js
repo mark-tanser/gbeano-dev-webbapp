@@ -32,15 +32,15 @@ function App() {
   let tele = null
   let initData = ""
   let user = testUser
+
   
   if (!isDevelopment) {
     tele = window.Telegram.WebApp
     initData = new URLSearchParams(tele.initData)
-    if (validateInitData(initData)) {
-      console.log("initData validated")
+    //if (validateInitData(initData)) {
+    //  console.log("initData validated")
       user = JSON.parse(initData.get("user"))
-    }
-    
+    //}
   }
   
   console.log("user:", user)
@@ -61,6 +61,7 @@ function App() {
                   user={user} 
                   search={search} 
                   setSearch={setSearch}
+                  initData={initData}
                 />
               :
                 <SelectGroup 

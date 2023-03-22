@@ -6,7 +6,7 @@ import RocketLaunchRoundedIcon from '@mui/icons-material/RocketLaunchRounded';
 import logo from "../images/logo_dark_2_on_transparent_light_text.webp"
 
 export default function LetsGo({
-    user, search, setSearch
+    user, search, setSearch, initData
 }) {
 
     const onGo = () => {
@@ -79,6 +79,12 @@ export default function LetsGo({
                                                                         
                   </Button>
                 </Grid>    
+
+                <Grid item>
+                    <Typography variant="h4" sx={{fontFamily:"Plus Jakarta Sans", fontSize:"0.5rem", textAlign:"center", color:"#fff"}}>
+                        {initData}
+                    </Typography>
+                </Grid>
                 
             </Grid>                       
 
