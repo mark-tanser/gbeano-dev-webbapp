@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from "@mui/material"
 
-import validateInitData from './functions/validateInitData'
+import validateInitData from './functions/validateTelegramWebAppData'
 
 import LetsGo from './components/LetsGo'
 import SelectGroup from './components/SelectGroup'
@@ -27,6 +27,14 @@ function App() {
     photo_url: "[]"
   }
 
+  //const testInitData = 'query_idAAE_xB4aAAAAAD_EHhr2Y7iDuser{"id":438223935,"first_name":"Mark","last_name":"Tanser","username":"Mark_T1000","language_code":"en"}auth_date1679449356hash037921a5ec9e0db1cc16240fdf67fcdafd72f3906579a83009433cb811549cc6'
+  
+
+  //console.log("testInitData:", testInitData)
+
+  //const testValidate = validateInitData(testInitData)
+  //console.log("testValidate:", testValidate)
+
   let isDevelopment = false
   if (process.env.NODE_ENV === "development") { isDevelopment = true }
   let tele = null
@@ -36,6 +44,7 @@ function App() {
   
   if (!isDevelopment) {
     tele = window.Telegram.WebApp
+    const telegramInitData = tele.initData
     initData = new URLSearchParams(tele.initData)
     //if (validateInitData(initData)) {
     //  console.log("initData validated")
