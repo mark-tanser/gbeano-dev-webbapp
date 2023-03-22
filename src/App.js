@@ -22,7 +22,7 @@ function App() {
     id: "000000001",  
     first_name: "[First Name]",
     last_name: "[Last Name]",
-    username: "[username"],
+    username: "[username]",
     language_code: "[en]",
     photo_url: "[]"
   }
