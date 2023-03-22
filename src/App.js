@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="App">
 
-      <Grid container direction="row" justifyContent="center" alignItems="flex-start" sx={{ backgroundColor:"#1e293b", height:"100vh" }} padding={1}>
+      <Grid container direction="row" justifyContent="center" alignItems="flex-start" sx={{ backgroundColor:"#1e293b", height:"200vh" }} padding={1}>
           
           {
             !search 
