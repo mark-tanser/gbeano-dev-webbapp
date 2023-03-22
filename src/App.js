@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Grid } from "@mui/material"
 
+import validateInitData from './functions/validateInitData'
+
 import LetsGo from './components/LetsGo'
 import SelectGroup from './components/SelectGroup'
 
@@ -16,23 +18,29 @@ function App() {
   const [selectedOrg, setSelectedOrg] = useState(null)
   const [selectedGroup, setSelectedGroup] = useState(null)
 
+  const testUser = { 
+    id: "000000001",  
+    first_name: "[First Name]",
+    last_name: "[Last Name]",
+    username: "[username"],
+    language_code: "[en]",
+    photo_url: "[]"
+  }
+
   let isDevelopment = false
   if (process.env.NODE_ENV === "development") { isDevelopment = true }
   let tele = null
   let initData = ""
-  let user = { 
-    id: "438223935",  
-    first_name: "Mark",
-    last_name: "Tanser",
-    username: "Mark_T1000",
-    language_code: "en",
-    photo_url: ""
-  }
+  let user = testUser
   
   if (!isDevelopment) {
     tele = window.Telegram.WebApp
     initData = new URLSearchParams(tele.initData)
-    user = JSON.parse(initData.get("user"))
+    if (validateInitData(initData)) {
+      console.log("initData validated")
+      user = JSON.parse(initData.get("user"))
+    }
+    
   }
   
   console.log("user:", user)
