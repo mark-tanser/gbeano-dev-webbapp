@@ -35,22 +35,27 @@ export default function SelectGroup({
                 setOrganisations(data.data)
                 setLoading(false)
             })
-            .catch((error) => setError(error));
+            .catch((error) => setError(error))
         }
         
     }, [])
 
     useEffect(() => {
-        setLoading(true)
-        const query = process.env.REACT_APP_STRAPI_API_URL + "/api/groups?&populate=*&filters[organisation][name][$eq]=" + selectedOrg
-        console.log("query:", query)
-        axios
-            .get( query )
-            .then(({ data }) => {
-                setGroups(data.data)
-                setLoading(false)
-            })
-            .catch((error) => setError(error));
+
+        if(selectedOrg) {
+            setLoading(true)
+            const query = process.env.REACT_APP_STRAPI_API_URL + "/api/groups?&populate=*&filters[organisation][name][$eq]=" + selectedOrg
+            console.log("query:", query)
+            axios
+                .get( query )
+                .then(({ data }) => {
+                    setGroups(data.data)
+                    setLoading(false)
+                })
+                .catch((error) => setError(error))
+
+        }
+        
     }, [selectedOrg])
 
     const handleSelectOrg = (event) => {
@@ -128,7 +133,7 @@ export default function SelectGroup({
                                             value={selectedOrg}
                                         >
                                             {
-                                                organisations && !loading
+                                                !loading && organisations || selectedOrg
                                                     ?
                                                         organisations.map((organisation, i) => {
                                                             return (
@@ -154,7 +159,13 @@ export default function SelectGroup({
                                                             
                                                         })
                                                     :
-                                                        <CircularProgress/>
+                                                        loading
+                                                            ?
+                                                                <Grid item container justifyContent="center">
+                                                                    <CircularProgress/>
+                                                                </Grid>
+                                                            :
+                                                                undefined
 
                                             }
                                         </RadioGroup>
@@ -210,7 +221,14 @@ export default function SelectGroup({
                                                             
                                                         })
                                                     :
-                                                        <CircularProgress/>
+                                                        selectedOrg
+                                                            ?
+                                                                <Grid item container justifyContent="center">
+                                                                    <CircularProgress/>
+                                                                </Grid>
+                                                                
+                                                            :
+                                                                undefined
                                             }
                                         </RadioGroup>
 
@@ -260,13 +278,21 @@ export default function SelectGroup({
                 }
 
                 <Grid item container justifyContent="center" marginTop={4}>
-                    <IconButton onClick={()=>{
-                        setShowGroup(null)
-                        setSelectedGroup(null)
-                        setSelectedOrg(null)
-                    }}>
-                        <CloseIcon sx={{color:"#a6c2f4"}}/>
-                    </IconButton>
+                    {
+                        selectedOrg
+                            ?
+                                <IconButton onClick={()=>{
+                                    setShowGroup(null)
+                                    setSelectedGroup(null)
+                                    setSelectedOrg(null)
+                                }}>
+                                    <CloseIcon sx={{color:"#a6c2f4"}}/>
+                                </IconButton>
+                            :
+                                undefined
+
+                    }
+                    
                 </Grid>
                 
             </Grid>

@@ -3,6 +3,8 @@ import { Grid, Typography, Button } from "@mui/material"
 
 import axios from "axios"
 
+import getMemberID from "../functions/getMemberID"
+import getSubscription from "../functions/getSubscription"
 
 
 export default function JoinGroup({
@@ -10,12 +12,39 @@ export default function JoinGroup({
 }) {
 
     const [applied, setApplied] = useState(false)
+    const [application, setApplication] = useState(null)
 
-    const onJoin = () => {
-    
+    const newApplicationMessage = "Thank you for applying. The group administrator will review and contact you directly."
+    const existingApplicationMessage = "You have already applied for this group. Please review the information below..."
+    //TODO: change these to state and set from cms data fields
+
+    const onJoin = async () => {
         setApplied(true)
+
+        console.log("showGroup:", showGroup)
+        const groupID = showGroup.id
+        console.log("groupID:", groupID)
+
+        try {
+            // retrieve member id from existing member or create new member
+            const memberID = await getMemberID(user)
+            console.log("memberID:", memberID)    
+
+            // retrieve existing subscription info or create new subscription
+            const subscription = await getSubscription(memberID, groupID)
+            console.log("subscription:", subscription)  
+
+            setApplication(subscription)
+
+        } catch (error) {
+            console.error(error);
+        }
+
+        // display subscription status and membership id
+        // show actions
     }
 
+    console.log("application:", application)
 
     return (
         <Grid item container direction="column" alignItems="center">
@@ -115,7 +144,7 @@ export default function JoinGroup({
 
             <Grid item>
                 {
-                    applied
+                    applied && application
                         ?
                             <>
                                 <Grid item>
@@ -129,8 +158,30 @@ export default function JoinGroup({
                                             textAlign:"center", 
                                             color:"#fff"}}
                                     >
-                                        Thank you for applying.<br/>
-                                        You will be notified soon.
+                                        {
+                                            application.status.id === 1
+                                                ?
+                                                    newApplicationMessage
+                                                :
+                                                    existingApplicationMessage
+                                        }
+
+                                    </Typography>
+                                </Grid>
+
+                                <Grid item>
+                                    <Typography 
+                                        paragraph 
+                                        variant="h2" 
+                                        sx={{
+                                            fontFamily:"Plus Jakarta Sans", 
+                                            fontSize:"1rem", 
+                                            lineHeight:"200%", 
+                                            textAlign:"center", 
+                                            color:"#fff"}}
+                                    >
+                                        Application status: {application.status.name}<br/>
+                                        Updated: {application.createdAt.slice(0,10)}
                                     </Typography>
                                 </Grid>
                                 
