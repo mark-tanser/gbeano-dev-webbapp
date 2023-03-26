@@ -17,7 +17,7 @@ export default function JoinGroup({
     //TODO: change these to state and set from cms data fields
 
     const onJoin = async () => {
-        setProgressMessage("join button has been clicked")
+        
         setApplied(true)
 
         console.log("showGroup:", showGroup)
@@ -26,15 +26,12 @@ export default function JoinGroup({
 
         try {
             // retrieve member id from existing member or create new member
-            setProgressMessage("retrieving member ID...")
             const memberID = await getMemberID(user)
             console.log("memberID:", memberID)    
-            setProgressMessage("Member ID has been found or created as: " + memberID)
 
             // retrieve existing subscription info or create new subscription
             const subscription = await getSubscription(memberID, groupID)
             console.log("subscription:", subscription)  
-            setProgressMessage("Subscription ID has been found or created as: " + subscription.id)
 
             setApplication(subscription)
 
