@@ -53,7 +53,6 @@ export default function SelectGroup({
                     setLoading(false)
                 })
                 .catch((error) => setError(error))
-
         }
         
     }, [selectedOrg])

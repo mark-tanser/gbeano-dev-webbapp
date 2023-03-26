@@ -17,12 +17,12 @@ function App() {
   const [selectedGroup, setSelectedGroup] = useState(null)
 
   const testUser = { 
-    id: "000000001",  
-    first_name: "[First Name]",
-    last_name: "[Last Name]",
-    username: "[username]",
-    language_code: "[en]",
-    photo_url: "[]"
+    id: "438223935",  
+    first_name: "Mark",
+    last_name: "Tanser",
+    username: "Mark_T1000",
+    language_code: "en",
+    photo_url: "none"
   }
 
   let isDevelopment = false

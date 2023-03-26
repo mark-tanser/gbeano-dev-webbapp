@@ -11,7 +11,6 @@ export default function JoinGroup({
 
     const [applied, setApplied] = useState(false)
     const [application, setApplication] = useState(null)
-    const [progressMessage, setProgressMessage] = useState("join button not yet clicked")
 
     const newApplicationMessage = "Thank you for applying. The group administrator will review and contact you directly."
     const existingApplicationMessage = "You have already applied for this group. Please review the information below..."
@@ -213,10 +212,6 @@ export default function JoinGroup({
                                 </Button>
                             </>
                  }
-            </Grid>
-
-            <Grid item>
-                {progressMessage}
             </Grid>
 
         </Grid>
