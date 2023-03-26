@@ -195,7 +195,7 @@ export default function SelectGroup({
                                             onChange={handleSelectGroup}
                                         >
                                             {
-                                                groups && !loading
+                                                groups && !loading && selectedOrg
                                                     ?
                                                         groups.map((group, i) => {
                                                             return (
