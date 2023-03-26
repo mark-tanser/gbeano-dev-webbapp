@@ -1,8 +1,6 @@
 import React, {useState} from "react"
 import { Grid, Typography, Button } from "@mui/material"
 
-import axios from "axios"
-
 import getMemberID from "../functions/getMemberID"
 import getSubscription from "../functions/getSubscription"
 
@@ -13,12 +11,14 @@ export default function JoinGroup({
 
     const [applied, setApplied] = useState(false)
     const [application, setApplication] = useState(null)
+    const [progressMessage, setProgressMessage] = useState("join button not yet clicked")
 
     const newApplicationMessage = "Thank you for applying. The group administrator will review and contact you directly."
     const existingApplicationMessage = "You have already applied for this group. Please review the information below..."
     //TODO: change these to state and set from cms data fields
 
     const onJoin = async () => {
+        setProgressMessage("join button has been clicked")
         setApplied(true)
 
         console.log("showGroup:", showGroup)
@@ -27,12 +27,15 @@ export default function JoinGroup({
 
         try {
             // retrieve member id from existing member or create new member
+            setProgressMessage("retrieving member ID...")
             const memberID = await getMemberID(user)
             console.log("memberID:", memberID)    
+            setProgressMessage("Member ID has been found or created as: " + memberID)
 
             // retrieve existing subscription info or create new subscription
             const subscription = await getSubscription(memberID, groupID)
             console.log("subscription:", subscription)  
+            setProgressMessage("Subscription ID has been found or created as: " + subscription.id)
 
             setApplication(subscription)
 
@@ -210,6 +213,10 @@ export default function JoinGroup({
                                 </Button>
                             </>
                  }
+            </Grid>
+
+            <Grid item>
+                {progressMessage}
             </Grid>
 
         </Grid>
